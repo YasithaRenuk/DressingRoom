@@ -4,9 +4,7 @@ import {
   Stage,
   Environment,
 } from "@react-three/drei";
-//import Man from "./Man";
-//import ManikanF from "./ManikanF";
-import FemalD from "./FemalD";
+import MaleID from "./Male";
 import { useCustomization } from "../src/context/Customization";
 
 const Experience = () => {
@@ -21,11 +19,11 @@ const Experience = () => {
       <Stage environment={back} intensity={0.6} contactshdow={false}>
       <Environment preset={back} background blur={0.1} />
         {/* 3d objeect */}
-        <FemalD />
+        <MaleID />
         {console.log(back)}
       </Stage>
       {/* platfrom */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -100, 0]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>
         <planeGeometry args={[1000, 600]} />
         <MeshReflectorMaterial
           blur={[300, 100]}

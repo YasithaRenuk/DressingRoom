@@ -20,6 +20,24 @@ export const SkinClors = [
   },
 ];
 
+export const hairClors = [
+  {
+    color: "#000000",
+  },
+  {
+    color: "#150b01",
+  },
+  {
+    color: "#1f1101",
+  },
+  {
+    color: "#2a1602",
+  },
+  {
+    color: "#2f1902",
+  },
+];
+
 export const backgroundImg =[
   {
     name: "apartment",
@@ -55,8 +73,10 @@ export const backgroundImg =[
 
 export const CustomizationProvider = (props) => {
   const [material, setMaterial] = useState("cloth");
+  const [materialB, setMaterialB] = useState("cloth");
   const [legs, setLeges] = useState(1);
   const [skinColor, setskinColor] = useState(SkinClors[0].color);
+  const [hairColor, sethairColor] = useState(hairClors[0].color);
   const [back, setBack] = useState(backgroundImg[0].name);
   return (
     <CustomizationContext.Provider
@@ -68,7 +88,11 @@ export const CustomizationProvider = (props) => {
         skinColor,
         setskinColor,
         back,
-        setBack
+        setBack,
+        hairColor,
+        sethairColor,
+        materialB, 
+        setMaterialB
       }}
     >
       {props.children}

@@ -1,7 +1,12 @@
-import { SkinClors, backgroundImg, useCustomization } from "../src/context/Customization";
+import {
+  SkinClors,
+  hairClors,
+  backgroundImg,
+  useCustomization,
+} from "../src/context/Customization";
 
 const Configurator = () => {
-  const { material, setMaterial, legs, setLeges, skinColor, setskinColor,back, setBack } =
+  const { skinColor, setskinColor, hairColor, sethairColor, back, setBack } =
     useCustomization();
   //console.log('material',material);
   return (
@@ -27,9 +32,29 @@ const Configurator = () => {
             </div>
           ))}
         </div>
+        <div className="configurator_section_title">Hair Color</div>
+        <div className="configurator_section_values">
+          {hairClors.map((item, index) => (
+            <div
+              key={index}
+              className={`item ${
+                item.color === hairColor ? "item--active" : ""
+              }`}
+              onClick={() => sethairColor(item.color)}
+            >
+              <div
+                className="item_dot"
+                style={{ backgroundColor: item.color }}
+              />
+              {/* <div className="item_label">
+                    {item.name}
+                </div> */}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="configurator_section">
-        <div className="configurator_section_title">Dress material</div>
+        {/* <div className="configurator_section_title">Dress material</div>
         <div className="configurator_section_values">
           <div
             className={`item ${
@@ -47,7 +72,7 @@ const Configurator = () => {
           >
             <div className="item_labal">Frabric 02</div>
           </div>
-        </div>
+        </div> */}
         {/* <div className="configurator_section">
                 <div className="configurator_section_title">
                     Cloth ON/OFF
@@ -64,31 +89,21 @@ const Configurator = () => {
                     </div>
                 </div>
             </div>
-    
-
             </div> */}
-          <div className="configurator_section">
-        <div className="configurator_section_title">Environment</div>
-        <div className="configurator_section_values">
-          {backgroundImg.map((item, index) => (
-            <div
-              key={index}
-              className={`item ${
-                item.name === back ? "item--active" : ""
-              }`}
-              onClick={() => setBack(item.name)}
-            >
-              {/* <div
-                className="item_dot"
-                style={{ backgroundColor: item.color }}
-              /> */}
-              <div className="item_label">
-                    {item.name}
-                </div>
-            </div>
-          ))}
+        <div className="configurator_section">
+          <div className="configurator_section_title">Environment</div>
+          <div className="configurator_section_values">
+            {backgroundImg.map((item, index) => (
+              <div
+                key={index}
+                className={`item ${item.name === back ? "item--active" : ""}`}
+                onClick={() => setBack(item.name)}
+              >
+                <div className="item_label">{item.name}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import './App.css'
 import Configurator from "../componets/Configurator"
 import Sound from "../componets/Sounds"
 import { CustomizationProvider } from "./context/Customization"
+import ClothConfigurator from "../componets/ClothConfigurator"
 
 function App() {
   
@@ -18,7 +19,8 @@ function App() {
       </Canvas>
       <Sound/>
       <h1 className="title1">Dressing Room</h1>
-      <Configurator/>
+      <Configurator/> 
+      <ClothConfigurator/>
     </div>
     </CustomizationProvider>
   )
